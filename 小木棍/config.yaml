@@ -1,0 +1,48 @@
+# 全局参数
+global:
+  threads: 10
+  timeout: 30
+  output_format: excel
+  encoding: utf-8
+  tools_path: tools
+
+# 子域名收集模块
+subdomain:
+  enabled: true
+  crt_sh:
+    enabled: true
+    api_url: "https://crt.sh/?q=%25.{domain}&output=json"
+  sources:
+    - subfinder
+    - crt.sh
+    - shodan
+    - securitytrails
+  verify_alive: true
+  securitytrails_api_key: "d_wXfcgIvbWeAhLMUGvlH2DnMMeXnLBO"
+  zoomeye_api_key: ""
+  shodan_api_key: "8U3fd9BSqyzentffLrhocQm7rSvy44jx"
+
+# DNS扫描模块
+dns:
+  enabled: true
+  axfr_check: true
+  target_domain: "example.com"  # 要扫描的目标域名
+
+# 备案查询模块
+icp:
+  enabled: true
+  cookie: ""
+
+  # 从实际请求中提取有效的cookie值
+
+# 端口扫描模块
+port_scan:
+  enabled: true
+  tool: nmap
+
+# 网站指纹识别模块
+fingerprint:
+  enabled: true
+  tools:
+    - Wappalyzer
+    - WhatWeb
